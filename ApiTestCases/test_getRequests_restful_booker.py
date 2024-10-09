@@ -7,7 +7,7 @@ import requests
 @allure.title("TC1-Verify ping request")
 @allure.description("TC1-healthcheck of the app")
 @allure.tag("smoke")
-def test_tc2():
+def test_tc1():
     url = "https://restful-booker.herokuapp.com/ping"
     response_data = requests.get(url)
     print(response_data.text)
@@ -20,7 +20,7 @@ def test_tc2():
 @allure.description("TC2-Tests the booking details of the user with an valid booking id and status code should be 200, "
                     "this is a positive tc")
 @allure.tag("smoke")
-def test_tc1():
+def test_tc2():
     url = "https://restful-booker.herokuapp.com/booking/5"
     response_data = requests.get(url)
     print(response_data.json())
@@ -33,7 +33,7 @@ def test_tc1():
 @allure.description("TC3-Tests the booking details of the user with an null booking id and status code should be 404, "
                     "this is a negative tc")
 @allure.tag("smoke")
-def test_tc2():
+def test_tc3():
     url = "https://restful-booker.herokuapp.com/booking/null"
     response_data = requests.get(url)
     print(response_data.text)
@@ -47,7 +47,7 @@ def test_tc2():
                     "should be 404,"
                     "this is a negative tc")
 @allure.tag("smoke")
-def test_tc2():
+def test_tc4():
     url = "https://restful-booker.herokuapp.com/booking/-5"
     response_data = requests.get(url)
     print(response_data.text)
@@ -61,7 +61,7 @@ def test_tc2():
                     "should be 404,"
                     "this is a negative tc")
 @allure.tag("smoke")
-def test_tc2():
+def test_tc5():
     url = "https://restful-booker.herokuapp.com/booking/!@"
     response_data = requests.get(url)
     print(response_data.text)
