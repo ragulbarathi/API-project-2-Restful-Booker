@@ -38,12 +38,7 @@ def create_booking_id():
         },
         "additionalneeds": "Breakfast"
     }
-    response = requests.post(url=URL, headers=HEADERS, data=DATA)
+    response = requests.post(url=URL, headers=HEADERS, json=DATA)
     booking_id = response.json()["bookingid"]
     print(booking_id)
     return booking_id
-
-
-def test_consume(create_token, create_booking_id):
-    print("Token->", create_token)
-    print("Booking id->", create_booking_id)
