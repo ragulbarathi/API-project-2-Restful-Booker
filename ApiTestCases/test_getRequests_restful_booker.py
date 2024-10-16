@@ -22,8 +22,8 @@ def test_get_healthcheck_booker():
                     "this is a positive tc")
 @allure.tag("smoke")
 @allure.severity(allure.severity_level.CRITICAL)
-def test_get_booking_valid_booking_id():
-    url = "https://restful-booker.herokuapp.com/booking/5"
+def test_get_booking_valid_booking_id(bid: int):
+    url = "https://restful-booker.herokuapp.com/booking/" + str(bid)
     response_data = requests.get(url)
     print(response_data.json())
     print(response_data.headers)

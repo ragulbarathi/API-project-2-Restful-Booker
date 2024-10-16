@@ -6,7 +6,7 @@ import os
 
 @pytest.fixture()
 def create_token():
-    load_dotenv()
+    load_dotenv(override=True)
     username = os.getenv("USERNAME")
     password = os.getenv("PASSWORD")
 
@@ -42,3 +42,10 @@ def create_booking_id():
     booking_id = response.json()["bookingid"]
     print(booking_id)
     return booking_id
+
+
+@pytest.fixture()
+def get_booking_by_id(bid):
+    url = "https://restful-booker.herokuapp.com/booking/" + str(bid)
+    response_data = requests.get(url)
+    return response_data
